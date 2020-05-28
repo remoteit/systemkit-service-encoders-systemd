@@ -79,7 +79,7 @@ func SERVICEToSystemD(serviceSpec spec.SERVICE) (platformService string) {
 	// [Service]
 	sb.WriteString("[Service]\n")
 	sb.WriteString("Type=simple\n")
-	sb.WriteString(fmt.Sprintf("ExecStart=\n", serviceSpec.Executable))
+	sb.WriteString(fmt.Sprintf("ExecStart=%s\n", serviceSpec.Executable))
 
 	if len(strings.TrimSpace(serviceSpec.WorkingDirectory)) > 0 {
 		sb.WriteString(fmt.Sprintf("WorkingDirectory=%s\n", serviceSpec.WorkingDirectory))
@@ -108,10 +108,10 @@ func SERVICEToSystemD(serviceSpec spec.SERVICE) (platformService string) {
 	}
 
 	if len(strings.TrimSpace(serviceSpec.Credentials.User)) > 0 {
-		sb.WriteString(fmt.Sprintf("User=\n", serviceSpec.Credentials.User))
+		sb.WriteString(fmt.Sprintf("User=%s\n", serviceSpec.Credentials.User))
 	}
 	if len(strings.TrimSpace(serviceSpec.Credentials.Group)) > 0 {
-		sb.WriteString(fmt.Sprintf("Group=\n", serviceSpec.Credentials.Group))
+		sb.WriteString(fmt.Sprintf("Group=%s\n", serviceSpec.Credentials.Group))
 	}
 
 	// [Install]

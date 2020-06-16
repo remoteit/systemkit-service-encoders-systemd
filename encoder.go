@@ -102,7 +102,7 @@ func SERVICEToSystemD(serviceSpec spec.SERVICE) (platformService string) {
 		sb.WriteString(fmt.Sprintf("StandardOutput=%s\n", serviceSpec.Logging.StdOut.Value))
 	}
 	if serviceSpec.Logging.StdErr.Disabled {
-		sb.WriteString("StandardOutput=null\n")
+		sb.WriteString("StandardError=null\n")
 	} else if !serviceSpec.Logging.StdErr.UseDefault {
 		sb.WriteString(fmt.Sprintf("StandardError=%s\n", serviceSpec.Logging.StdErr.Value))
 	}

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	spec "github.com/codemodify/systemkit-service-spec"
+	spec "github.com/remoteit/systemkit-service-spec"
 )
 
 /*
